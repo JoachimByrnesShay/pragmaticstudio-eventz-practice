@@ -1,0 +1,24 @@
+
+
+	<% @events.each do |e| %>
+		<section class="event">
+			<div class="image">
+				<%= main_image(e) %>
+      </div>
+			<div class="summary">
+				<h2><%= link_to e.name, event_path(e) %></h2> 
+				<h3><%= day_and_time(e) %> in <%= e.location %></h3>
+				<span class="price"> 
+					<%= price(e) %>
+				</span>
+				<p>
+					<%= truncate(e.description, length: 35, separator: " ") %>
+				</p>
+			 </div>
+		</section>
+	<% end %>
+	<% if current_user_admin? %>
+		<section class="admin">
+			<%= link_to "Add New Event", new_event_path, class: "button" %>
+		</section>
+	<% end %>

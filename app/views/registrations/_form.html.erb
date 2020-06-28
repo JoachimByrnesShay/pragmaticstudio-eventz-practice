@@ -1,0 +1,12 @@
+
+<%= form_with(model: [@event, @registration], local: true) do |f| %>
+<%= render "shared/errors", object: [@event, @registration] %>
+
+
+<%= f.label :how_heard %> 
+<%= f.select :how_heard, Registration::HOW_HEARD_OPTIONS, prompt: 'pick one' %>
+
+
+<%= f.submit method: "post" %>
+
+<% end %>

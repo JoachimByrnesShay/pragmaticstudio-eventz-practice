@@ -1,0 +1,40 @@
+<header>
+  <nav>
+
+    <%= link_to image_tag("logo.png"), root_path %>
+   
+    <ul class="left">
+      
+      <li>
+        <%= link_to "Upcoming Events", filtered_events_path(:upcoming) %>
+      </li>
+      <li>
+        <%= link_to "Past Events", filtered_events_path(:past) %>
+      </li>
+      <li>
+        <%= link_to "Free Events", filtered_events_path(:free) %>
+      </li>
+      <li>
+        <%= link_to "Recent Events", filtered_events_path(:recent) %>
+      </li>
+    </ul>
+    <ul class="right">
+      <% if session[:user_id] %>
+      <li>
+        <%= link_to "Hi #{current_user.name}", current_user, class: "button" %>
+      </li>
+      <li>
+        <%= link_to "Log Out", session_path, method: "delete", class: :button %>
+      </li>
+      <% else %>
+      <li>
+        <%= link_to "Sign In", signin_path, class:"button" %>
+      </li>
+      
+      <li>
+    		<%= link_to "Register", signup_path, class:"button" %>
+    	</li>
+      <% end %>
+    </ul>
+  </nav>
+</header>
