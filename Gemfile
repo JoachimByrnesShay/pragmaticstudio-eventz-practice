@@ -11,7 +11,7 @@ group :development, :test do
   gem 'sqlite3', '~> 1.4'
 end
 
-gem 'image_processing', '~> 1.2'
+gem 'image_processing', '~> 1.12'
 
 group :production do 
   gem 'pg'
